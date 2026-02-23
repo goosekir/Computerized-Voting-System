@@ -95,7 +95,7 @@ If token already used → reject vote
 
 If token unused → mark used + insert ballot + insert audit event
 
-**5) Work Split **
+**5) Work Split**
 
 _Zakir — Backend/Data Layer (Mongo + correctness)_
 

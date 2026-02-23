@@ -24,7 +24,7 @@ Language: Java
 
 UI: JavaFX (desktop GUI) (kinda annoying we have to use java for ui but it should be ok)
 
-Database: MongoDB (local MongoDB)
+Database: MongoDB (MongoDB Atlas)
 
 DB Access: MongoDB Java Driver
 

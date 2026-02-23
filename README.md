@@ -4,4 +4,5 @@ A voting system which can utilize the speed and accuracy of computers to have ne
 By,
 
 Nicholas Pellegrino
+
 Zakir Rizvi

@@ -1,0 +1,37 @@
+$match
+{
+  electionId: ObjectId("69a8b257b8f5eea5944f5ffa")
+}
+
+$group
+{
+  _id: "$candidateId",
+  voteCount: { $sum: 1 }
+}
+
+$lookup
+{
+  from: "candidates",
+  localField: "_id",
+  foreignField: "_id",
+  as: "candidate"
+}
+
+$unwind
+{
+  path: "$candidate"
+}
+
+$project
+{
+  _id: 0,
+  candidateId: "$_id",
+  candidateName: "$candidate.name",
+  voteCount: 1
+}
+
+$sort
+{
+  voteCount: -1
+  candidateName: 1
+}

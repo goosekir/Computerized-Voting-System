@@ -1,0 +1,14 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["electionId", "tokenHash", "candidateId", "createdAt"],
+    "properties": {
+      "electionId": { "bsonType": "objectId" },
+      "tokenHash": { "bsonType": "string", "minLength": 1, "maxLength": 128 },
+      "candidateId": { "bsonType": "objectId" },
+      "createdAt": { "bsonType": "date" }
+    },
+    "additionalProperties": true
+  },
+  "additionalProperties": true
+}

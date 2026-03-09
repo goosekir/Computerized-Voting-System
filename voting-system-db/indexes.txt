@@ -1,0 +1,18 @@
+candidates:
+Non Unique index:
+electionId
+
+elections:
+Unique index:
+_id
+
+tokens:
+Unique index:
+electionId + tokenHash
+
+votes:
+Unique index (prevents double voting):
+electionId + tokenHash
+
+Non Unique Index:
+electionId + candidateId

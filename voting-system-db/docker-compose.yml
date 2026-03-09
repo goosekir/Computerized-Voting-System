@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:7
+    container_name: voting-system-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+
+  db_setup:
+    image: mongo:7
+    container_name: voting-system-db-setup
+    depends_on:
+      - mongodb
+    working_dir: /app
+    volumes:
+      - ./scripts:/app/scripts:ro
+    environment:
+      # Use the service name "mongodb" as the host (Docker network DNS)
+      MONGO_URI: "mongodb://mongodb:27017/voting_system"
+    command: >
+      bash -lc "mongosh \"$MONGO_URI\" --file /app/scripts/init.js
+      && mongosh \"$MONGO_URI\" --file /app/scripts/seed.js"
+    restart: "no"
+
+volumes:
+  mongo_data:

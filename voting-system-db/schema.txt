@@ -1,0 +1,29 @@
+Database: voting_system
+
+Collections:
+
+candidates
+  _id
+  name
+  electionId
+
+elections
+  _id
+  name
+  status
+  createdAt
+
+tokens
+  _id
+  electionId
+  tokenHash
+  status
+  issuedAt
+  usedAt
+
+votes
+  _id
+  electionId
+  tokenHash
+  candidateId
+  createdAt
